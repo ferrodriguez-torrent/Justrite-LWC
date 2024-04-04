@@ -1,0 +1,34 @@
+<template>
+    <lightning-card class="myriad-pro" title="CU-510355">
+        
+        <div class="slds-grid slds-wrap">
+            <!-- Product Details -->
+        <template for:each={productDetails} for:item="detail">
+            <div key={detail.label} class="slds-size_1-of-2 slds-p-around_small">
+                <b class="myriad-pro">{detail.label}:</b> 
+            </div>
+            <div key={detail.label} class="slds-size_1-of-2 slds-p-around_small">
+                <span>{detail.value}</span>
+            </div>
+        </template>
+    </div>
+        <!-- Actions -->
+         <div class="slds-grid slds-wrap">
+        <lightning-card class="slds-m-around_small">
+            <lightning-button-group>
+                <lightning-button label="View Larger" variant="brand" onclick={handleViewLarger}></lightning-button>
+                <lightning-button label="Approve " variant="success" onclick={handleApprove}></lightning-button>
+                <lightning-button label="Send for Rework" variant="destructive" onclick={handleRework}></lightning-button>
+            </lightning-button-group>
+        </lightning-card>
+        </div>
+        <!-- Logo -->
+        <lightning-card class="slds-m-around_small">
+            <img src={aptlogo} style="width: 200px;">
+        </lightning-card>
+         <!-- Modal --> 
+        <c-modal-Dialog img-src={aptlogo} submit-label="Close" modal-message=" " modal-title="Preview" hide-cancel=true onsubmit={closeModal} if:true={isModalOpen}></c-modal-Dialog>
+     
+    </lightning-card>
+   
+</template>

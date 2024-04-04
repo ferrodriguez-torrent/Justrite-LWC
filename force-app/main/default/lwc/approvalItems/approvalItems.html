@@ -1,0 +1,54 @@
+<template>
+
+  <div class="slds-box">
+    <div class="slds-grid slds-wrap">
+    <lightning-button-group>
+      <lightning-button label="Approve Selected Items " variant="success" onclick={handleApproveSelectedItems}></lightning-button>
+    </lightning-button-group>
+  </div>
+    <div class="slds-grid slds-wrap">
+      <h2 class="slds-card-header-title p-3">
+      <span class="slds-text-heading_small slds-truncate">
+        Items to Approve
+      </span>
+    </h2>
+  </div>
+  
+	<lightning-checkbox-group name="Checkbox Group"
+		label=""
+		options={options}
+		value={value}
+		onchange={handleChange}>
+	</lightning-checkbox-group>
+
+  </div>
+
+  <c-scoped-notification 
+    if:true={showMessage} 
+    message={message}
+    notificationtype={notification}>
+  </c-scoped-notification>
+
+
+  <div class="slds-box">
+    <div class="slds-grid slds-wrap">
+    <lightning-button-group>
+      <lightning-button label="Approve Selected Items " variant="success" onclick={handleApproveSelectedItems}></lightning-button>
+    </lightning-button-group>
+  </div>
+    <div class="slds-grid slds-wrap">
+      <h2 class="slds-card-header-title p-3">
+      <span class="slds-text-heading_small slds-truncate">
+        Items to Approve
+      </span>
+    </h2>
+  </div>
+  <lightning-input type="checkbox" label="Select All" name="input1" onchange={handleSelectAll}></lightning-input>
+    <!-- <template if:true={data}> -->
+      <template for:each={aarData} for:item="element">
+        <lightning-input type="checkbox" label={element.Name} key={element.Id} ></lightning-input>
+      </template>
+    <!-- </template> -->
+  </div>
+
+</template>
